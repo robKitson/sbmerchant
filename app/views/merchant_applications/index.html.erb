@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Merchant Applications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @merchant_applications.each do |merchant_application| %>
+      <tr>
+        <td><%= merchant_application.name %></td>
+        <td><%= link_to 'Business Info', edit_merchant_application_business_info_path(merchant_application)%></td>
+        <td><%= link_to 'Show', merchant_application %></td>
+        <td><%= link_to 'Edit', edit_merchant_application_path(merchant_application) %></td>
+        <td><%= link_to 'Destroy', merchant_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Merchant Application', new_merchant_application_path %>

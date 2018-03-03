@@ -10,7 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180228000419) do
+ActiveRecord::Schema.define(version: 20180228040156) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "street1"
+    t.string "street2"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "phone"
+    t.string "fax"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "business_infos", force: :cascade do |t|
+    t.integer "merchant_application_id"
+    t.string "business_name"
+    t.string "legal_name"
+    t.integer "location_address_id"
+    t.string "email"
+    t.string "website"
+    t.integer "billing_address_id"
+    t.string "contact_name"
+    t.string "contact_phone"
+    t.string "contact_fax"
+    t.string "contact_email"
+    t.string "customer_service_email"
+    t.boolean "retreival_request_to_business_address"
+    t.string "retreival_request_fax_number"
+    t.integer "mcc_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "merchant_applications", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

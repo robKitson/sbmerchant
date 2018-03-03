@@ -1,0 +1,10 @@
+<%
+  sbm_name = human_name.underscore
+  plural_sbm_name = sbm_name.pluralize
+%>
+<%% content_for :title do %>Editing <%= human_name %><%% end %>
+
+<%%= render 'form' %>
+
+<%%= link_to 'Show', @<%= sbm_name %> %> |
+<%%= link_to 'Back', <%= index_helper %>_path %>

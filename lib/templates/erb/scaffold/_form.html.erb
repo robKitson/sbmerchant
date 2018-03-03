@@ -1,0 +1,53 @@
+<%
+  sbm_name = human_name.underscore
+  plural_sbm_name = sbm_name.pluralize
+%>
+<div class="col-sm-10 col-md-6">
+  <%%= form_for @<%= sbm_name %>, as: :<%= sbm_name %>, url: (@<%= sbm_name %>.new_record? ? <%= table_name %>_path(@<%= sbm_name %>) : <%= singular_table_name %>_path(@<%= sbm_name %>)), :html => {class:"form-horizontal"}  do |f| %>
+    <%% if @<%= sbm_name %>.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <div><strong><%%= pluralize(@<%= sbm_name %>.errors.count, "error") %></strong> prohibited this <%= sbm_name %> from being saved:
+        </div>
+
+        <ul>
+        <%% @<%= sbm_name %>.errors.full_messages.each do |message| %>
+          <li><%%= message %></li>
+        <%% end %>
+        </ul>
+      </div>
+    <%% end %>
+
+  <% attributes.each do |attribute| -%>
+    <div class="form-group">
+  <% if attribute.password_digest? -%>
+      <%%= f.label :password, "Password", class:"col-sm-3 control-label" %>
+        <div class="col-sm-9">
+          <div class=''>
+            <%%= f.password_field :password, class:"form-control" %>
+          </div>
+        </div>
+    </div>
+    <div class="form-group">
+      <%%= f.label :password_confirmation, "Re-enter password", class:"col-sm-3 control-label" %>
+        <div class="col-sm-9">
+          <div class=''>
+            <%%= f.password_field :password_confirmation, class:"form-control" %>
+          </div>
+        </div>
+  <% else -%>
+      <%%= f.label :<%= attribute.column_name %>, class:"col-sm-3 control-label" %>
+        <div class="col-sm-9">
+          <div class=''>
+            <%%= f.<%= attribute.field_type %> :<%= attribute.column_name %>, class:"form-control" %>
+          </div>
+        </div>
+  <% end -%>
+    </div>
+  <% end -%>
+    <div class="form-group">
+      <div class="col-sm-9 col-sm-offset-3">
+        <%%= f.submit( class:"btn btn-primary" ) %>
+      </div>
+    </div>
+  <%% end %>
+</div>

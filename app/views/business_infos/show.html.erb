@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Merchant application:</strong>
+  <%= @business_info.merchant_application_id %>
+</p>
+
+<p>
+  <strong>Business info:</strong>
+  <%= @business_info.business_info %>
+</p>
+
+<p>
+  <strong>Business name:</strong>
+  <%= @business_info.business_name %>
+</p>
+
+<p>
+  <strong>Legal name:</strong>
+  <%= @business_info.legal_name %>
+</p>
+
+<p>
+  <strong>Location address:</strong>
+  <%= @business_info.location_address_id %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @business_info.email %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @business_info.website %>
+</p>
+
+<p>
+  <strong>Billing address:</strong>
+  <%= @business_info.billing_address_id %>
+</p>
+
+<p>
+  <strong>Contact name:</strong>
+  <%= @business_info.contact_name %>
+</p>
+
+<p>
+  <strong>Contact phone:</strong>
+  <%= @business_info.contact_phone %>
+</p>
+
+<p>
+  <strong>Contact fax:</strong>
+  <%= @business_info.contact_fax %>
+</p>
+
+<p>
+  <strong>Contact email:</strong>
+  <%= @business_info.contact_email %>
+</p>
+
+<p>
+  <strong>Customer service email:</strong>
+  <%= @business_info.customer_service_email %>
+</p>
+
+<p>
+  <strong>Retreival request to business address:</strong>
+  <%= @business_info.retreival_request_to_business_address %>
+</p>
+
+<p>
+  <strong>Retreival request fax number:</strong>
+  <%= @business_info.retreival_request_fax_number %>
+</p>
+
+<p>
+  <strong>Mcc:</strong>
+  <%= @business_info.mcc_id %>
+</p>
+
+<%= link_to 'Edit', edit_merchant_application_business_info_path(@merchant_application) %> |
+<%= link_to 'Back', merchant_application_path(@merchant_application) %>

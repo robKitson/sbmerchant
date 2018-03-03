@@ -1,0 +1,41 @@
+<%
+  sbm_name = human_name.underscore
+  plural_sbm_name = sbm_name.pluralize
+%>
+<%% content_for :title do %>Listing <%= human_name.pluralize %><%% end %>
+
+<%% content_for :action_menu_items do %>
+  <!-- Do you need to put a helper in /app/helpers/action_menu_helper.rb? -->
+  <li><%%= link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path, class:""%></li>
+<%% end %>
+<%% content_for :action_menu_back_link do %><%% end %>
+
+<%%= borg_table id:"<%= plural_table_name.downcase %>_table" do %>
+  <thead>
+    <tr>
+      <th></th>
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+      <th><%= attribute.human_name %></th>
+<% end -%>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%% @<%= plural_sbm_name %>.each do |<%= sbm_name %>| %>
+      <tr>
+        <td class="actions">
+          <%%= link_button_for_show <%= sbm_name %>, <%= sbm_name %> %>
+          <%%= link_button_for_edit <%= sbm_name %>, edit_<%= singular_table_name %>_path(<%= sbm_name %>) %>
+          <!--<%%= link_to 'Destroy', <%= singular_table_name %>_path(<%= sbm_name %>), method: :delete, data: { confirm: 'Are you sure?' } %>-->
+        </td>
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+        <td><%%= <%= sbm_name %>.<%= attribute.name %> %></td>
+<% end -%>
+      </tr>
+    <%% end %>
+  </tbody>
+<%% end %>
+
+<br>
+
+

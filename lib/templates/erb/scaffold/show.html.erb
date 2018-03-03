@@ -1,0 +1,15 @@
+<%
+  sbm_name = human_name.underscore
+  plural_sbm_name = sbm_name.pluralize
+%>
+<%% content_for :title do %>Show <%%= @<%= sbm_name %> %><%% end %>
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+<dl class="dl-horizontal">
+  <dt><%= attribute.human_name %></dt>
+  <dd><%%= @<%= sbm_name %>.<%= attribute.name %> %></dd>
+</dl>
+
+<% end -%>
+
+<%%= link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= sbm_name %>), class:"btn btn-default" %>
+<%%= link_to 'Back', <%= index_helper %>_path, class:"btn btn-default" %>

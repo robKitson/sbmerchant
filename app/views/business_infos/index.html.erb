@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Business Infos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Merchant application</th>
+      <th>Business info</th>
+      <th>Business name</th>
+      <th>Legal name</th>
+      <th>Location address</th>
+      <th>Email</th>
+      <th>Website</th>
+      <th>Billing address</th>
+      <th>Contact name</th>
+      <th>Contact phone</th>
+      <th>Contact fax</th>
+      <th>Contact email</th>
+      <th>Customer service email</th>
+      <th>Retreival request to business address</th>
+      <th>Retreival request fax number</th>
+      <th>Mcc</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @business_infos.each do |business_info| %>
+      <tr>
+        <td><%= business_info.merchant_application_id %></td>
+        <td><%= business_info.business_info %></td>
+        <td><%= business_info.business_name %></td>
+        <td><%= business_info.legal_name %></td>
+        <td><%= business_info.location_address_id %></td>
+        <td><%= business_info.email %></td>
+        <td><%= business_info.website %></td>
+        <td><%= business_info.billing_address_id %></td>
+        <td><%= business_info.contact_name %></td>
+        <td><%= business_info.contact_phone %></td>
+        <td><%= business_info.contact_fax %></td>
+        <td><%= business_info.contact_email %></td>
+        <td><%= business_info.customer_service_email %></td>
+        <td><%= business_info.retreival_request_to_business_address %></td>
+        <td><%= business_info.retreival_request_fax_number %></td>
+        <td><%= business_info.mcc_id %></td>
+        <td><%= link_to 'Show', business_info %></td>
+        <td><%= link_to 'Edit', edit_business_info_path(business_info) %></td>
+        <td><%= link_to 'Destroy', business_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Business Info', new_business_info_path %>

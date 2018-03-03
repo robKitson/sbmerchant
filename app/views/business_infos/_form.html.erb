@@ -1,0 +1,132 @@
+<%= form_with(model: business_info, url:merchant_application_business_info_path(business_info.merchant_application), local: true) do |form| %>
+  <% if business_info.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(business_info.errors.count, "error") %> prohibited this business_info from being saved:</h2>
+
+      <ul>
+      <% business_info.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :business_name %>
+    <%= form.text_field :business_name, id: :business_info_business_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :legal_name %>
+    <%= form.text_field :legal_name, id: :business_info_legal_name %>
+  </div>
+
+
+  <%= form.fields_for :location_address, @business_info.location_address do |location_address_fields| %>
+    <div class="field">
+      <%= location_address_fields.label :street1, "Location Street1" %>
+      <%= location_address_fields.text_field :street1, id: :business_info_location_address_street1 %>
+    </div>
+
+    <div class="field">
+      <%= location_address_fields.label :street2, "Location Street2" %>
+      <%= location_address_fields.text_field :street2, id: :business_info_location_address_street1 %>
+    </div>
+
+    <div class="field">
+      <%= location_address_fields.label :city, "Location City" %>
+      <%= location_address_fields.text_field :city, id: :business_info_location_address_street1 %>
+    </div>
+
+    <div class="field">
+      <%= location_address_fields.label :state, "Location State" %>
+      <%= location_address_fields.text_field :state, id: :business_info_location_address_street1 %>
+    </div>
+
+    <div class="field">
+      <%= location_address_fields.label :zip, "Location Zip" %>
+      <%= location_address_fields.text_field :zip, id: :business_info_location_address_street1 %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :business_info_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :website %>
+    <%= form.text_field :website, id: :business_info_website %>
+  </div>
+
+  <%= form.fields_for :billing_address, @business_info.billing_address do |billing_address_fields| %>
+    <div class="field">
+      <%= billing_address_fields.label :street1, "Billing Street1" %>
+      <%= billing_address_fields.text_field :street1, id: :business_info_location_address_street1 %>
+    </div>
+
+    <div class="field">
+      <%= billing_address_fields.label :street2, "Billing Street2" %>
+      <%= billing_address_fields.text_field :street2, id: :business_info_location_address_street1 %>
+    </div>
+
+    <div class="field">
+      <%= billing_address_fields.label :city, "Billing City" %>
+      <%= billing_address_fields.text_field :city, id: :business_info_location_address_street1 %>
+    </div>
+
+    <div class="field">
+      <%= billing_address_fields.label :state, "Billing State" %>
+      <%= billing_address_fields.text_field :state, id: :business_info_location_address_street1 %>
+    </div>
+
+    <div class="field">
+      <%= billing_address_fields.label :zip, "Billing Zip" %>
+      <%= billing_address_fields.text_field :zip, id: :business_info_location_address_street1 %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :contact_name %>
+    <%= form.text_field :contact_name, id: :business_info_contact_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_phone %>
+    <%= form.text_field :contact_phone, id: :business_info_contact_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_fax %>
+    <%= form.text_field :contact_fax, id: :business_info_contact_fax %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_email %>
+    <%= form.text_field :contact_email, id: :business_info_contact_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_service_email %>
+    <%= form.text_field :customer_service_email, id: :business_info_customer_service_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :retreival_request_to_business_address %>
+    <%= form.check_box :retreival_request_to_business_address, id: :business_info_retreival_request_to_business_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :retreival_request_fax_number %>
+    <%= form.text_field :retreival_request_fax_number, id: :business_info_retreival_request_fax_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mcc_id %>
+    <%= form.number_field :mcc_id, id: :business_info_mcc_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

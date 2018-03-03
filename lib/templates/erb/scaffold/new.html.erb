@@ -1,0 +1,7 @@
+<%
+  sbm_name = human_name.underscore
+  plural_sbm_name = sbm_name.pluralize
+%>
+<%% content_for :title do %>New <%= sbm_name %><%% end %>
+
+<%%= render 'form' %>

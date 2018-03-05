@@ -1,0 +1,35 @@
+
+<% content_for :title do %>Show <%= @owner info %><% end %>
+<dl class="dl-horizontal">
+  <dt>Name</dt>
+  <dd><%= @owner info.name %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt>Ownership percent</dt>
+  <dd><%= @owner info.ownership_percent %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt>Date of birth</dt>
+  <dd><%= @owner info.date_of_birth %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt>Ssn</dt>
+  <dd><%= @owner info.ssn %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt>Email address</dt>
+  <dd><%= @owner info.email_address %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt>Home address</dt>
+  <dd><%= @owner info.home_address_id %></dd>
+</dl>
+
+
+<%= link_to 'Edit', edit_owner_info_path(@owner info), class:"btn btn-default" %>
+<%= link_to 'Back', owner_infos_path, class:"btn btn-default" %>

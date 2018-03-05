@@ -1,0 +1,44 @@
+
+<% content_for :title do %>Listing Owner infos<% end %>
+
+<% content_for :action_menu_items do %>
+  <!-- Do you need to put a helper in /app/helpers/action_menu_helper.rb? -->
+  <li><%= link_to 'New Owner info', new_owner_info_path, class:""%></li>
+<% end %>
+<% content_for :action_menu_back_link do %><% end %>
+
+<%= borg_table id:"owner_infos_table" do %>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Ownership percent</th>
+      <th>Date of birth</th>
+      <th>Ssn</th>
+      <th>Email address</th>
+      <th>Home address</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @owner infos.each do |owner info| %>
+      <tr>
+        <td class="actions">
+          <%= link_button_for_show owner info, owner info %>
+          <%= link_button_for_edit owner info, edit_owner_info_path(owner info) %>
+          <!--<%= link_to 'Destroy', owner_info_path(owner info), method: :delete, data: { confirm: 'Are you sure?' } %>-->
+        </td>
+        <td><%= owner info.name %></td>
+        <td><%= owner info.ownership_percent %></td>
+        <td><%= owner info.date_of_birth %></td>
+        <td><%= owner info.ssn %></td>
+        <td><%= owner info.email_address %></td>
+        <td><%= owner info.home_address_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+<% end %>
+
+<br>
+
+

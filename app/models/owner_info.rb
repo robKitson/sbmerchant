@@ -1,0 +1,2 @@
+class OwnerInfo < ApplicationRecord
+end
